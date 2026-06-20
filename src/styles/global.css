@@ -846,25 +846,98 @@ a {
 
 .team-section {
   display: grid;
-  grid-template-columns: 0.54fr 0.9fr;
+  grid-template-columns: 0.72fr 1fr;
   gap: 44px;
-  align-items: center;
+  align-items: start;
 }
 
-.founder-frame {
-  overflow: hidden;
+.founder-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.founder-card {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+  padding: 18px;
   border: 1px solid var(--line);
-  border-radius: 30px;
-  background: #111;
-  box-shadow: var(--shadow);
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(246, 241, 234, 0.06), rgba(246, 241, 234, 0.015)),
+    rgba(15, 15, 18, 0.84);
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
 }
 
-.founder-frame img {
+.founder-portrait {
+  overflow: hidden;
+  border: 1px solid rgba(246, 241, 234, 0.1);
+  border-radius: 20px;
+  background: #111;
+}
+
+.founder-portrait img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
+  min-height: 220px;
   object-fit: cover;
   object-position: center top;
   filter: grayscale(1);
+}
+
+.founder-details {
+  min-width: 0;
+  padding: 6px 4px 4px;
+}
+
+.founder-role {
+  display: inline-flex;
+  color: var(--orange-2);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.founder-details h3 {
+  margin: 12px 0 0;
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.founder-lane {
+  margin: 8px 0 0;
+  color: #ded7ce;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.founder-details p:not(.founder-lane) {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.founder-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.founder-signals span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(246, 241, 234, 0.12);
+  border-radius: 999px;
+  color: #d8d0c6;
+  font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .team-copy h2 {
@@ -1071,6 +1144,16 @@ a {
   .signal-card-two {
     bottom: 62px;
     width: min(62%, 260px);
+  }
+
+  .founder-card {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .founder-portrait img {
+    min-height: 260px;
+    aspect-ratio: 4 / 3;
   }
 
   .loop {

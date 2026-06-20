@@ -43,6 +43,27 @@ const operatorPoints = [
   'Singapore-first wedge keeps the first market dense, social, time-sensitive, and operationally learnable.',
   'The long-term bet is not another event listing site. It is the decision interface between intent and real-world attendance.',
 ]
+
+const founders = [
+  {
+    name: 'Clarence Chan',
+    role: 'Co-Founder & CEO',
+    lane: 'Market, growth, partnerships',
+    image: '/assets/media/founder.jpg',
+    alt: 'Clarence Chan portrait',
+    bio: 'Live events and nightlife operator leading growth, venue partnerships, monetization, and demand-side strategy.',
+    signals: ['Nightlife operator', 'Venue network', 'Demand strategy'],
+  },
+  {
+    name: 'Sayyid Khan',
+    role: 'Co-Founder & CTO',
+    lane: 'Product, AI, architecture',
+    image: '/assets/media/sayyid.jpg',
+    alt: 'Sayyid Khan portrait',
+    bio: 'Full-stack AI engineer leading product architecture, agentic AI execution, scalability, and unit-economics thinking.',
+    signals: ['Agentic AI', 'Full-stack systems', 'Scalability'],
+  },
+]
 ---
 
 <!doctype html>
@@ -287,18 +308,34 @@ const operatorPoints = [
         </section>
 
         <section class="section team-section" id="team" aria-labelledby="team-title">
-          <div class="founder-frame">
-            <img src="/assets/media/founder.jpg" alt="Buzo founder portrait" width="1066" height="1600" loading="lazy" />
-          </div>
           <div class="team-copy">
-            <h2 id="team-title">Built like an operator, not a slide deck.</h2>
+            <p class="section-kicker">Founder team</p>
+            <h2 id="team-title">Clear owner roles: CEO and CTO.</h2>
             <p>
-              Buzo’s advantage is execution speed across product, data, distribution, and monetization. The page exists to
-              make the business thesis legible; the repos exist to prove the team can ship.
+              Buzo is led by two active co-founders: one with the market edge to understand nightlife distribution, and
+              one with the technical edge to turn that insight into a scalable AI product.
             </p>
             <ul class="operator-list">
               {operatorPoints.map((point) => <li>{point}</li>)}
             </ul>
+          </div>
+          <div class="founder-grid" aria-label="Buzo founder roles">
+            {founders.map(({ name, role, lane, image, alt, bio, signals }) => (
+              <article class="founder-card">
+                <div class="founder-portrait">
+                  <img src={image} alt={alt} width="800" height="800" loading="lazy" />
+                </div>
+                <div class="founder-details">
+                  <span class="founder-role">{role}</span>
+                  <h3>{name}</h3>
+                  <p class="founder-lane">{lane}</p>
+                  <p>{bio}</p>
+                  <div class="founder-signals" aria-label={`${name} founder strengths`}>
+                    {signals.map((signal) => <span>{signal}</span>)}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
