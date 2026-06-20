@@ -1,0 +1,334 @@
+---
+import '../styles/global.css'
+
+const appUrl = 'https://getbuzo.vercel.app/'
+const waitlistUrl = 'https://gr-waitlist.vercel.app/'
+const githubUrl = 'https://github.com/gigradarapp'
+
+const proofCells = [
+  ['Live product', 'Mobile web app for Discover, Ask, Plan, and Profile flows.'],
+  ['Hosted backend', 'Cloudflare Worker API with auth, events, planning, AI, weather, and media helpers.'],
+  ['Demand surface', 'Public waitlist and product demo page for early acquisition.'],
+]
+
+const fragments = [
+  ['Instagram + TikTok', 'Discovery starts in feeds, but the signal disappears fast.'],
+  ['Google + ticketing', 'Listings exist, but they rarely explain the right choice tonight.'],
+  ['Telegram + group chats', 'Plans move through private channels and last-minute decisions.'],
+  ['Venue pages', 'Official pages know the event, not the person deciding where to go.'],
+]
+
+const systemNotes = [
+  ['AI concierge', 'A conversational layer turns vague intent into a short, usable plan.'],
+  ['Verified event graph', 'Events become structured entities with time, place, source, category, and freshness.'],
+  ['Social intent', 'The product can compound around saves, plans, shares, and group decisions.'],
+]
+
+const modelRows = [
+  ['01', 'Consumer Pro', 'Premium planning, smarter recommendations, saved events, and stronger personalization.'],
+  ['02', 'Venues and promoters', 'Distribution, demand insight, and a path to reach people while intent is fresh.'],
+  ['03', 'Ticketing and affiliate', 'High-intent event recommendations create natural conversion moments.'],
+  ['04', 'City expansion', 'Start dense and social in Singapore, then replicate the operating playbook.'],
+]
+
+const proofTiles = [
+  ['App', 'A working product surface already exists for discovery, AI recommendations, event planning, auth, and profile state.', appUrl, 'Open app'],
+  ['Waitlist', 'A separate acquisition page captures demand and shows the product demo without forcing people into the app.', waitlistUrl, 'Open waitlist'],
+  ['Event catalog', 'The backend serves a live Singapore event feed with caching, rate limits, and structured event detail.', 'https://buzo-be-dev.buzo.workers.dev/api/discover/events?limit=1', 'View feed'],
+  ['Architecture', 'The system is split into frontend, backend, payments, data collection, and architecture repos rather than one demo blob.', githubUrl, 'View repos'],
+]
+
+const operatorPoints = [
+  'Built from hackathon-speed execution: app, waitlist, backend, payments, and data surfaces shipped in parallel.',
+  'Singapore-first wedge keeps the first market dense, social, time-sensitive, and operationally learnable.',
+  'The long-term bet is not another event listing site. It is the decision interface between intent and real-world attendance.',
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Buzo is building the decision layer for going out, starting with Singapore nightlife."
+    />
+    <meta name="theme-color" content="#070708" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Buzo — The decision layer for going out</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+          <a class="brand" href="/" aria-label="Buzo home">
+            <img src="/assets/logo/b-logo.svg" alt="" width="34" height="34" />
+            <span>Buzo</span>
+          </a>
+          <nav class="nav-links" aria-label="Page sections">
+            <a href="#thesis">Thesis</a>
+            <a href="#product">Product</a>
+            <a href="#market">Market</a>
+            <a href="#proof">Proof</a>
+            <a href="#team">Team</a>
+          </nav>
+          <a class="button button-primary" href={appUrl}>Try the app</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section hero" id="thesis">
+          <div class="hero-copy">
+            <h1>
+              <span class="hero-line">The decision</span>
+              <span class="hero-line">layer for</span>
+              <span class="hero-line">going <span class="hero-accent">out.</span></span>
+            </h1>
+            <p class="hero-sub">
+              Buzo turns fragmented nightlife signals into trusted, personalized plans, starting with Singapore.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href={appUrl}>Try the app</a>
+              <a class="button button-secondary" href={waitlistUrl}>Join waitlist</a>
+            </div>
+            <div class="hero-proof" aria-label="Current proof points">
+              {proofCells.map(([title, body]) => (
+                <div class="proof-cell">
+                  <strong>{title}</strong>
+                  <span>{body}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Buzo product and event signal preview">
+            <div class="signal-field">
+              <div class="signal-map">
+                <div class="route-line"></div>
+                <span class="pin pin-1"></span>
+                <span class="pin pin-2"></span>
+                <span class="pin pin-3"></span>
+              </div>
+            </div>
+
+            <div class="signal-card signal-card-one">
+              <small>Live signal</small>
+              <strong>NMIXX at The Star Theatre</strong>
+              <p>Time, venue, source, image status, category, and location become structured context.</p>
+            </div>
+
+            <div class="signal-card signal-card-two">
+              <small>Decision support</small>
+              <strong>Less searching. More certainty.</strong>
+              <p>The user asks for a night out. Buzo returns a plan, not a pile of tabs.</p>
+            </div>
+
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="phone-top">
+                  <span>Ask Buzo</span>
+                  <span>Singapore</span>
+                </div>
+                <div class="video-frame">
+                  <video src="/assets/media/demo.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                  <div class="phone-panel">
+                    <strong>Tonight, central, credible.</strong>
+                    <span>Ranked picks from live events, source freshness, and user taste.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="problem-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Problem and insight</p>
+              <h2 class="section-title" id="problem-title">People do not lack listings. They lack confidence.</h2>
+            </div>
+            <p class="section-copy">
+              Going out is still assembled manually from scattered feeds, stale listings, private chats, and last-minute
+              social context. The job is not discovery alone. The job is deciding.
+            </p>
+          </div>
+
+          <div class="split-proof">
+            <div class="problem-panel">
+              <div class="fragment-list">
+                {fragments.map(([title, body]) => (
+                  <article class="fragment">
+                    <strong>{title}</strong>
+                    <span>{body}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <aside class="quote-panel">
+              <blockquote>More event data creates more tabs. Better context creates a decision.</blockquote>
+              <p>
+                Buzo’s wedge is nightlife because the category is dense, emotional, social, time-sensitive, and
+                monetizable. The same pattern can extend to other local intent categories once the operating system works.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="product" aria-labelledby="product-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Product system</p>
+              <h2 class="section-title" id="product-title">A loop between intent, signals, and plans.</h2>
+            </div>
+            <p class="section-copy">
+              The product is not a static event board. It is a decision interface powered by structured event data,
+              recommendation logic, and user planning behavior.
+            </p>
+          </div>
+
+          <div class="system-grid">
+            <div class="loop" aria-label="Buzo planning loop">
+              <div class="loop-center"><strong>Decision loop</strong></div>
+              <div class="loop-step loop-step-one" data-step="1">
+                <strong>Intent</strong>
+                <span>Area, vibe, timing, budget, group, and energy level.</span>
+              </div>
+              <div class="loop-step loop-step-two" data-step="2">
+                <strong>Signals</strong>
+                <span>Event sources, freshness, categories, images, weather, and geography.</span>
+              </div>
+              <div class="loop-step loop-step-three" data-step="3">
+                <strong>Plan</strong>
+                <span>Shortlist, details, save, share, and mark going.</span>
+              </div>
+              <div class="loop-step loop-step-four" data-step="4">
+                <strong>Feedback</strong>
+                <span>Profile, taste, favorites, subscriptions, and future intent.</span>
+              </div>
+            </div>
+
+            <div class="product-copy">
+              {systemNotes.map(([title, body]) => (
+                <article class="system-note">
+                  <strong>{title}</strong>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div class="market-band" id="market">
+          <section class="section" aria-labelledby="market-title">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Market wedge</p>
+                <h2 class="section-title" id="market-title">Singapore nightlife first. City operating system next.</h2>
+              </div>
+              <p class="section-copy">
+                A narrow wedge makes the system operationally real. Singapore gives Buzo density, urgency, social behavior,
+                venue concentration, and a clear path to local partnerships.
+              </p>
+            </div>
+
+            <div class="wedge-grid">
+              <div class="city-panel">
+                <div>
+                  <h3>Start where plans break.</h3>
+                  <p>
+                    Nightlife is high intent but low certainty. People decide late, compare too many sources, and rely on
+                    group chat heuristics. That creates a strong opening for an AI-native decision layer.
+                  </p>
+                </div>
+                <div class="city-map" aria-hidden="true">
+                  <span class="city-node"></span>
+                  <span class="city-node"></span>
+                  <span class="city-node"></span>
+                </div>
+              </div>
+
+              <div class="model-list">
+                {modelRows.map(([index, title, body]) => (
+                  <article class="model-row">
+                    <span class="model-index">{index}</span>
+                    <div>
+                      <strong>{title}</strong>
+                      <span>{body}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="section" id="proof" aria-labelledby="proof-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Proof</p>
+              <h2 class="section-title" id="proof-title">The story is already shipping.</h2>
+            </div>
+            <p class="section-copy">
+              The public surface is more than a mockup: app, waitlist, backend, event catalog, payments surface, and
+              architecture documentation already exist as separate parts of the system.
+            </p>
+          </div>
+
+          <div class="proof-grid">
+            {proofTiles.map(([title, body, href, label]) => (
+              <article class="proof-tile">
+                <strong>{title}</strong>
+                <p>{body}</p>
+                <a class="proof-link" href={href}>{label}</a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section team-section" id="team" aria-labelledby="team-title">
+          <div class="founder-frame">
+            <img src="/assets/media/founder.jpg" alt="Buzo founder portrait" width="1066" height="1600" loading="lazy" />
+          </div>
+          <div class="team-copy">
+            <h2 id="team-title">Built like an operator, not a slide deck.</h2>
+            <p>
+              Buzo’s advantage is execution speed across product, data, distribution, and monetization. The page exists to
+              make the business thesis legible; the repos exist to prove the team can ship.
+            </p>
+            <ul class="operator-list">
+              {operatorPoints.map((point) => <li>{point}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section class="section final-cta" aria-labelledby="cta-title">
+          <div class="cta-panel">
+            <div>
+              <h2 id="cta-title">If Buzo is right, going out becomes a decision layer.</h2>
+              <p>
+                Start with the app, join the waitlist, or open the company repos to inspect the system behind the thesis.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a class="button button-primary" href={appUrl}>Try the app</a>
+              <a class="button button-secondary" href={waitlistUrl}>Join waitlist</a>
+              <a class="button button-secondary" href={githubUrl}>Contact</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <span>© 2026 Buzo. Built from Singapore.</span>
+          <div class="footer-links">
+            <a href={appUrl}>App</a>
+            <a href={waitlistUrl}>Waitlist</a>
+            <a href={githubUrl}>GitHub</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
