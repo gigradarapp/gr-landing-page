@@ -207,10 +207,10 @@ a {
 .hero h1 {
   max-width: 760px;
   margin: 0;
-  font-size: clamp(3.8rem, 8.6vw, 8.45rem);
+  font-size: clamp(3.4rem, 6.5vw, 6.3rem);
   font-weight: 900;
-  line-height: 0.89;
-  letter-spacing: -0.075em;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
 }
 
 .hero-line {
@@ -844,6 +844,157 @@ a {
   text-transform: uppercase;
 }
 
+.proof-tile-accent {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(226, 67, 37, 0.2), transparent 38%),
+    rgba(15, 15, 18, 0.9);
+}
+
+.proof-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.company-hero {
+  grid-template-columns: minmax(0, 0.86fr) minmax(360px, 0.74fr);
+  align-items: stretch;
+}
+
+.company-summary {
+  display: grid;
+  gap: 18px;
+  align-content: center;
+  min-height: 620px;
+}
+
+.company-summary article {
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(246, 241, 234, 0.07), rgba(246, 241, 234, 0.018)),
+    rgba(15, 15, 18, 0.86);
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.22);
+}
+
+.company-summary span {
+  display: inline-flex;
+  color: var(--orange-2);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.company-summary strong {
+  display: block;
+  margin-top: 14px;
+  color: #fff;
+  font-size: clamp(1.55rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.company-summary p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.model-row-wide {
+  grid-template-columns: 54px minmax(0, 1fr);
+  min-height: 138px;
+}
+
+.metric-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin-bottom: 34px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--line);
+}
+
+.metric-card {
+  min-height: 160px;
+  padding: 26px;
+  background:
+    linear-gradient(180deg, rgba(226, 67, 37, 0.08), transparent),
+    rgba(15, 15, 18, 0.88);
+}
+
+.metric-card strong {
+  display: block;
+  color: #fff;
+  font-size: clamp(1.85rem, 3.25vw, 3.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.metric-card span {
+  display: block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.validation-grid,
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stack-card {
+  min-height: 210px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(246, 241, 234, 0.055), rgba(246, 241, 234, 0.015)),
+    rgba(15, 15, 18, 0.78);
+}
+
+.stack-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(226, 67, 37, 0.28);
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(226, 67, 37, 0.24), transparent 48%),
+    rgba(246, 241, 234, 0.055);
+  color: var(--orange-2);
+}
+
+.stack-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stack-card strong {
+  display: block;
+  color: #fff;
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+}
+
+.stack-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .team-section {
   display: grid;
   grid-template-columns: 0.72fr 1fr;
@@ -1053,6 +1204,7 @@ a {
   }
 
   .hero,
+  .company-hero,
   .section-head,
   .split-proof,
   .system-grid,
@@ -1073,6 +1225,17 @@ a {
 
   .proof-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-grid-two,
+  .metric-strip,
+  .validation-grid,
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .company-summary {
+    min-height: auto;
   }
 
   .cta-actions {
@@ -1119,7 +1282,11 @@ a {
 
   .hero-proof,
   .fragment-list,
-  .proof-grid {
+  .proof-grid,
+  .proof-grid-two,
+  .metric-strip,
+  .validation-grid,
+  .stack-grid {
     grid-template-columns: 1fr;
   }
 

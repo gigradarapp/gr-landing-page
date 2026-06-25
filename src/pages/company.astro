@@ -1,0 +1,322 @@
+---
+import '../styles/global.css'
+
+const appUrl = 'https://getbuzo.vercel.app/'
+const waitlistUrl = 'https://gr-waitlist.vercel.app/'
+const githubUrl = 'https://github.com/gigradarapp'
+
+const productTiles = [
+  ['Discover', 'Singapore event discovery with category, image, venue, time, price, map, and source context.'],
+  ['Ask Buzo', 'AI recommendations from user intent such as area, timing, budget, group mood, and music taste.'],
+  ['Plan and profile', 'Saved events, profile state, taste preferences, auth, and subscription surfaces for repeat use.'],
+  ['OpenClaw ingestion', 'Crawler-backed event collection and normalization feeding the event catalog.'],
+]
+
+const modelRows = [
+  ['01', 'Free discovery', 'Consumer discovery stays free to build trust, usage, and high-intent behavior data.'],
+  ['02', 'Buzo Pro', 'SGD 6.99/month validation path for smarter recommendations, deeper personalization, multi-city use, and premium planning.'],
+  ['03', 'Affiliate and take-rate', 'Future ticketing, booking, and reservation moments can monetize high-intent outbound actions.'],
+  ['04', 'Venue and promoter tools', 'Later B2B revenue through transparent paid visibility, campaign tools, and qualified demand insights.'],
+]
+
+const metrics = [
+  ['100', 'Initial Singapore POC users.'],
+  ['150+', 'Fresh events per week target.'],
+  ['25%+', 'Decision-action target.'],
+  ['25%+', 'Weekend return target.'],
+]
+
+const icons = {
+  frontend:
+    '<svg viewBox="0 0 24 24" role="img"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M9 20h6M12 16v4"></path></svg>',
+  api:
+    '<svg viewBox="0 0 24 24" role="img"><path d="M7 8h10M7 16h10"></path><path d="M8 4 4 8l4 4M16 12l4 4-4 4"></path></svg>',
+  data:
+    '<svg viewBox="0 0 24 24" role="img"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"></path></svg>',
+  ai:
+    '<svg viewBox="0 0 24 24" role="img"><path d="M12 3l1.5 4.4L18 9l-4.5 1.6L12 15l-1.5-4.4L6 9l4.5-1.6L12 3Z"></path><path d="M18 14l.9 2.1L21 17l-2.1.9L18 20l-.9-2.1L15 17l2.1-.9L18 14Z"></path></svg>',
+  payments:
+    '<svg viewBox="0 0 24 24" role="img"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 15h4"></path></svg>',
+  acquisition:
+    '<svg viewBox="0 0 24 24" role="img"><path d="M4 13v-2l11-5v12L4 13Z"></path><path d="M15 8h2.5a2.5 2.5 0 0 1 0 5H15"></path><path d="M7 14l2 5"></path></svg>',
+}
+
+const stackTiles = [
+  ['frontend', 'Frontend', 'Astro landing page, React/Vite product app, and Vercel deployment.'],
+  ['api', 'API', 'Cloudflare Worker backend with Hono/tRPC routes for product, auth, AI, weather, media, and payments.'],
+  ['data', 'Data', 'Supabase for auth/profile/taste and Turso for high-churn event listings.'],
+  ['ai', 'AI and ingestion', 'OpenAI recommendation layer plus OpenClaw crawlers for event collection and normalization.'],
+  ['payments', 'Payments', 'Stripe checkout, portal, webhook, and subscription-tier handling.'],
+  ['acquisition', 'Acquisition', 'Public waitlist and demo surfaces for early user acquisition.'],
+]
+
+const validationRows = [
+  ['Supply quality', 'Fresh Singapore events, stale/duplicate control, source coverage, and operational QA.'],
+  ['Activation', 'Users should get a useful recommendation within 60 seconds of onboarding.'],
+  ['Decision behavior', 'Track event detail taps, saves, shares, “going”, and outbound source or ticket clicks.'],
+  ['Retention', 'Measure whether users return the next weekend and ask Buzo again.'],
+  ['Replacement', 'Check whether Buzo reduced reliance on Google, Instagram, Telegram, or friends for that night.'],
+  ['Willingness to pay', 'Validate Buzo Pro before treating subscription revenue as proven.'],
+]
+
+const founders = [
+  {
+    name: 'Clarence Chan',
+    role: 'Co-Founder & CEO',
+    lane: 'Market, growth, partnerships',
+    image: '/assets/media/founder.jpg',
+    alt: 'Clarence Chan portrait',
+    bio: 'Live events and nightlife operator leading growth, venue partnerships, monetization, and demand-side strategy.',
+    signals: ['Nightlife operator', 'Venue network', 'Demand strategy'],
+  },
+  {
+    name: 'Sayyid Khan',
+    role: 'Co-Founder & CTO',
+    lane: 'Product, AI, architecture',
+    image: '/assets/media/sayyid.jpg',
+    alt: 'Sayyid Khan portrait',
+    bio: 'Full-stack AI engineer leading product architecture, agentic AI execution, scalability, and unit-economics thinking.',
+    signals: ['Agentic AI', 'Full-stack systems', 'Scalability'],
+  },
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Company, product, business model, validation, and technology overview for Buzo."
+    />
+    <meta name="theme-color" content="#070708" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Buzo Company — Product and Business Model</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+          <a class="brand" href="/" aria-label="Buzo home">
+            <img src="/assets/logo/b-logo.svg" alt="" width="34" height="34" />
+            <span>Buzo</span>
+          </a>
+          <nav class="nav-links" aria-label="Page sections">
+            <a href="#product">Product</a>
+            <a href="#business-model">Business model</a>
+            <a href="#market">Market</a>
+            <a href="#technology">Technology</a>
+            <a href="#team">Team</a>
+          </nav>
+          <a class="button button-primary" href={appUrl}>Try the app</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section hero company-hero" id="top">
+          <div class="hero-copy">
+            <h1>
+              <span class="hero-line">The company</span>
+              <span class="hero-line">behind</span>
+              <span class="hero-line"><span class="hero-accent">Buzo.</span></span>
+            </h1>
+            <p class="hero-sub">
+              Buzo is building a verified nightlife decision layer: users get real events worth going to
+              tonight, while venues and promoters gain a future channel to reach high-intent demand.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href={appUrl}>Open product</a>
+              <a class="button button-secondary" href="/">Consumer page</a>
+              <a class="button button-secondary" href={githubUrl}>GitHub</a>
+            </div>
+          </div>
+
+          <div class="company-summary" aria-label="Buzo company summary">
+            <article>
+              <span>Product</span>
+              <strong>AI nightlife concierge</strong>
+              <p>Discover, Ask Buzo, event detail, planning, profile, auth, and Pro surfaces are already live.</p>
+            </article>
+            <article>
+              <span>Wedge</span>
+              <strong>Singapore nightlife</strong>
+              <p>Dense, social, high-intent, time-sensitive, and commercially useful for validation.</p>
+            </article>
+            <article>
+              <span>Model</span>
+              <strong>B2C first, B2B later</strong>
+              <p>Free discovery builds trust; Pro, affiliate, and venue/promoter monetization compound after demand proof.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="product" aria-labelledby="product-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Product information</p>
+              <h2 class="section-title" id="product-title">A working product surface, not only a pitch.</h2>
+            </div>
+            <p class="section-copy">
+              Buzo turns fragmented event signals into a consumer decision workflow. The current product is
+              focused on Singapore event discovery and recommendation quality before broader social and B2B expansion.
+            </p>
+          </div>
+
+          <div class="proof-grid proof-grid-two">
+            {productTiles.map(([title, body]) => (
+              <article class="proof-tile">
+                <strong>{title}</strong>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div class="market-band" id="business-model">
+          <section class="section" aria-labelledby="model-title">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Business model</p>
+                <h2 class="section-title" id="model-title">Staged monetization, starting with trust.</h2>
+              </div>
+              <p class="section-copy">
+                Buzo’s business model is sequenced. Consumer usage creates trust and intent data first.
+                Monetization expands as decision actions and repeat usage are validated.
+              </p>
+            </div>
+
+            <div class="model-list">
+              {modelRows.map(([index, title, body]) => (
+                <article class="model-row model-row-wide">
+                  <span class="model-index">{index}</span>
+                  <div>
+                    <strong>{title}</strong>
+                    <span>{body}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <section class="section" id="market" aria-labelledby="market-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Market and validation</p>
+              <h2 class="section-title" id="market-title">Singapore first. Prove behavior before scale.</h2>
+            </div>
+            <p class="section-copy">
+              The near-term validation goal is not vanity traffic. It is whether users can choose a credible
+              night out faster than Google, Instagram, Telegram, or friends.
+            </p>
+          </div>
+
+          <div class="metric-strip" aria-label="Buzo validation targets">
+            {metrics.map(([value, label]) => (
+              <div class="metric-card">
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="validation-grid">
+            {validationRows.map(([title, body]) => (
+              <article class="system-note">
+                <strong>{title}</strong>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section" id="technology" aria-labelledby="tech-title">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Technology</p>
+              <h2 class="section-title" id="tech-title">Cloud-backed product infrastructure.</h2>
+            </div>
+            <p class="section-copy">
+              Buzo is split across frontend, backend, ingestion, data, payments, and acquisition surfaces so
+              the system can evolve beyond a hackathon prototype.
+            </p>
+          </div>
+
+          <div class="stack-grid">
+            {stackTiles.map(([icon, title, body]) => (
+              <article class="stack-card">
+                <span class="stack-icon" set:html={icons[icon as keyof typeof icons]} aria-hidden="true"></span>
+                <strong>{title}</strong>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section team-section" id="team" aria-labelledby="team-title">
+          <div class="team-copy">
+            <p class="section-kicker">Founder team</p>
+            <h2 id="team-title">Clear owner roles: CEO and CTO.</h2>
+            <p>
+              One founder brings nightlife operator and partnership depth. One founder brings AI product,
+              architecture, payments, and unit-economics execution.
+            </p>
+            <ul class="operator-list">
+              <li>Singapore-based team building from a live product and public acquisition surface.</li>
+              <li>Founder-market fit comes from events-market access plus AI systems execution.</li>
+              <li>Current focus is product validation, source quality, repeat use, and monetization proof.</li>
+            </ul>
+          </div>
+          <div class="founder-grid" aria-label="Buzo founder roles">
+            {founders.map(({ name, role, lane, image, alt, bio, signals }) => (
+              <article class="founder-card">
+                <div class="founder-portrait">
+                  <img src={image} alt={alt} width="800" height="800" loading="lazy" />
+                </div>
+                <div class="founder-details">
+                  <span class="founder-role">{role}</span>
+                  <h3>{name}</h3>
+                  <p class="founder-lane">{lane}</p>
+                  <p>{bio}</p>
+                  <div class="founder-signals" aria-label={`${name} founder strengths`}>
+                    {signals.map((signal) => <span>{signal}</span>)}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section final-cta" aria-labelledby="cta-title">
+          <div class="cta-panel">
+            <div>
+              <h2 id="cta-title">Product, model, and infrastructure are already in motion.</h2>
+              <p>
+                Open the consumer app, join the waitlist, or inspect the public repo organization behind
+                the Buzo system.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a class="button button-primary" href={appUrl}>Open product</a>
+              <a class="button button-secondary" href={waitlistUrl}>Join waitlist</a>
+              <a class="button button-secondary" href={githubUrl}>GitHub</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <span>© 2026 Buzo. Built from Singapore.</span>
+          <div class="footer-links">
+            <a href="/">Consumer</a>
+            <a href={appUrl}>App</a>
+            <a href={waitlistUrl}>Waitlist</a>
+            <a href={githubUrl}>GitHub</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
