@@ -102,19 +102,15 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   min-width: max-content;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 
-.brand img {
-  width: 34px;
-  height: 34px;
-}
-
-.brand span {
-  font-size: 1.02rem;
+.brand .brand-logo {
+  width: 76px;
+  height: 46px;
+  object-fit: contain;
 }
 
 .nav-links {
